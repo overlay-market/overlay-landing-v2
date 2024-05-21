@@ -17,6 +17,32 @@ import {
   styled,
 } from "@mui/material";
 
+const OverlayAllowsText = styled(Typography)({
+  textAlign: "left",
+  color: "#FFF",
+  fontSize: "34px",
+  fontStyle: "normal",
+  fontWeight: 400,
+  lineHeight: "103%",
+  paddingTop: "35px",
+  width: "30vw",
+  "@media (max-width: 768px)": {
+    width: "50%",
+    margin: "0 20px",
+  },
+});
+
+const VectorBox = styled(Box)({
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  position: "relative",
+  width: "1130px",
+  "@media (max-width: 768px)": {
+    height: "1800px",
+  },
+});
+
 const BootstrapButton = styled(Button)({
   marginTop: "45px",
   padding: "16px 36px",
@@ -50,18 +76,10 @@ function App() {
           style={{ paddingTop: "219px", width: "250px" }}
         />
       </Box>
-      <Box
+      <VectorBox
         sx={{
           backgroundImage: `url(${Vector1})`,
           height: 700,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          position: "relative",
-          width: "1130px",
-          "@media (max-width: 768px)": {
-            height: "1800px",
-          },
         }}
       >
         <Typography
@@ -81,19 +99,11 @@ function App() {
         >
           Ok awesome, you're here
         </Typography>
-      </Box>
-      <Box
+      </VectorBox>
+      <VectorBox
         sx={{
           backgroundImage: `url(${Vector2})`,
           height: 1000,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          position: "relative",
-          width: "1130px",
-          "@media (max-width: 768px)": {
-            height: "1800px",
-          },
         }}
       >
         <Box
@@ -114,7 +124,6 @@ function App() {
               fontsx: "inherit",
               fontWeight: 700,
               lineHeight: "103%",
-              width: "50vw",
             }}
           >
             but you should have
@@ -128,14 +137,13 @@ function App() {
               fontsx: "inherit",
               fontWeight: 700,
               lineHeight: "103%",
-              width: "50vw",
               textDecorationLine: "underline",
             }}
           >
             opened the app, dummy -{">"}
           </Typography>
         </Box>
-      </Box>
+      </VectorBox>
       <Box
         sx={{
           textAlign: "-webkit-center",
@@ -143,98 +151,36 @@ function App() {
           paddingBottom: "586px",
         }}
       >
-        <Typography
-          variant="h4"
-          sx={{
-            textAlign: "left",
-            color: "#FFF",
-            fontSize: "34px",
-            fontStyle: "normal",
-            fontWeight: 400,
-            lineHeight: "103%",
-            width: "30vw",
-          }}
-        >
+        <OverlayAllowsText variant="h4">
           Overlay allows you to trade nearly anything by converting data into a
           market.
-        </Typography>
-        <Typography
-          variant="h4"
-          sx={{
-            textAlign: "left",
-            color: "#FFF",
-            fontSize: "34px",
-            fontStyle: "italic",
-            fontWeight: 400,
-            lineHeight: "103%",
-            width: "30vw",
-            paddingTop: "35px",
-          }}
-        >
+        </OverlayAllowsText>
+        <OverlayAllowsText variant="h4">
           BTC Dominance, Sneaker Indexes, Elon Sentiment...
-        </Typography>
-        <Typography
-          variant="h4"
-          sx={{
-            textAlign: "left",
-            color: "#FFF",
-            fontSize: "34px",
-            fontStyle: "italic",
-            fontWeight: 700,
-            lineHeight: "103%",
-            width: "30vw",
-            paddingTop: "35px",
-          }}
-        >
+        </OverlayAllowsText>
+        <OverlayAllowsText variant="h4">
           - all possible on Overlay -
-        </Typography>
-        <Typography
-          variant="h4"
-          sx={{
-            textAlign: "left",
-            color: "#FFF",
-            fontSize: "34px",
-            fontStyle: "normal",
-            fontWeight: 400,
-            lineHeight: "103%",
-            width: "30vw",
-            paddingTop: "35px",
-          }}
-        >
+        </OverlayAllowsText>
+        <OverlayAllowsText variant="h4">
           Traders go long/short on market data with Overlay{"’"}s native token,
           OV, as collateral. Profit is paid out in OV. Losses burn collateral.
-        </Typography>
-        <Typography
+        </OverlayAllowsText>
+        <OverlayAllowsText
           variant="h4"
           sx={{
-            textAlign: "left",
-            color: "#FFF",
-            fontSize: "34px",
-            fontStyle: "normal",
-            fontWeight: 400,
-            lineHeight: "103%",
-            width: "30vw",
             paddingTop: "35px",
           }}
         >
           Overlay does not require liquidity to create a market.
-        </Typography>
-        <Typography
+        </OverlayAllowsText>
+        <OverlayAllowsText
           variant="h4"
           sx={{
-            textAlign: "left",
-            color: "#FFF",
-            fontSize: "34px",
-            fontStyle: "normal",
-            fontWeight: 400,
-            lineHeight: "103%",
-            width: "30vw",
-            paddingTop: "35px",
             textDecorationLine: "underline",
           }}
         >
           Read the docs -{">"}
-        </Typography>
+        </OverlayAllowsText>
       </Box>
       <Box sx={{ textAlign: "-webkit-center", position: "relative" }}>
         <Typography
@@ -246,7 +192,6 @@ function App() {
             fontStyle: "normal",
             fontWeight: 700,
             lineHeight: "103%",
-            width: "30vw",
           }}
         >
           oh,<br></br> still here?<br></br> k...
@@ -262,7 +207,6 @@ function App() {
             fontStyle: "normal",
             fontWeight: 300,
             lineHeight: "103%",
-            width: "30vw",
             paddingTop: "392px",
           }}
         >
@@ -279,25 +223,17 @@ function App() {
             fontStyle: "normal",
             fontWeight: 300,
             lineHeight: "103%",
-            width: "30vw",
             paddingTop: "392px",
           }}
         >
           blah blah<br></br> unreadable<br></br> whitepaper
         </Typography>
       </Box>
-      <Box
+      <VectorBox
         sx={{
           backgroundImage: `url(${Vector3})`,
           height: 900,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          position: "relative",
-          width: "1130px",
-          "@media (max-width: 768px)": {
-            height: "1800px",
-          },
+
           marginBottom: "2239px",
         }}
       >
@@ -357,7 +293,7 @@ function App() {
             style={{ width: "115px", height: "115px" }}
           />
         </Box>
-      </Box>
+      </VectorBox>
       <Box sx={{ textAlign: "-webkit-center", position: "relative" }}>
         <Box sx={{ paddingBottom: "68px" }}>
           <Typography
@@ -383,60 +319,72 @@ function App() {
               fontStyle: "normal",
               fontWeight: 100,
               lineHeight: "103%",
-              width: "30vw",
+              width: "max-content",
             }}
           >
             fine...
           </Typography>
         </Box>
-        <Box sx={{ textAlign: "-webkit-center", position: "relative" }}>
-          <Container maxWidth="sm">
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={4} style={{ paddingLeft: "50px" }}>
+        <Box
+          sx={{
+            textAlign: "-webkit-center",
+            position: "relative",
+            "@media (max-width: 900px)": {
+              width: "15%",
+            },
+          }}
+        >
+          <Container maxWidth="sm" sx={{ textAlign: "center" }}>
+            <Grid
+              container
+              spacing={{lg:12, md: 12, xs: 3}}
+              sx={{ justifyContent: "center", textAlign: "initial" }}
+            >
+              <Grid item xs={12} md={4}>
                 <Typography
                   variant="h6"
-                  sx={{ mb: 2, color: "#FFF", textAlign: "left" }}
+                  sx={{ mb: 2, color: "#FFF", textAlign: "left", fontWeight: 600, fontSize: "20px" }}
                 >
                   Protocol
                 </Typography>
                 <List>
-                  <ListItem sx={{ paddingLeft: "0px" }}>
+                  <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
                       primary="Github"
                     />
                   </ListItem>
-                  <ListItem sx={{ paddingLeft: "0px" }}>
+                  <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
                       primary="Documentation"
                     />
                   </ListItem>
-                  <ListItem sx={{ paddingLeft: "0px" }}>
+                  <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
                       primary="White Paper V1"
                     />
                   </ListItem>
-                  <ListItem sx={{ paddingLeft: "0px" }}>
+                  <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
                       primary="Spearbit Audit"
                     />
                   </ListItem>
-                  <ListItem sx={{ paddingLeft: "0px" }}>
+                  <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
                       primary="Least Authority Audit"
                     />
                   </ListItem>
-                  <ListItem sx={{ paddingLeft: "0px" }}>
+                  <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
                       primary="Trail of Bits Audit"
                     />
                   </ListItem>
-                  <ListItem sx={{ paddingLeft: "0px" }}>
+                  <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
                       primary="Immunefi Bounty"
@@ -444,27 +392,27 @@ function App() {
                   </ListItem>
                 </List>
               </Grid>
-              <Grid item xs={12} md={4} style={{ paddingLeft: "50px" }}>
+              <Grid item xs={12} md={4}>
                 <Typography
                   variant="h6"
-                  sx={{ mb: 2, color: "#FFF", textAlign: "left" }}
+                  sx={{ mb: 2, color: "#FFF", textAlign: "left", fontWeight: 600, fontSize: "20px" }}
                 >
                   Connect
                 </Typography>
                 <List>
-                  <ListItem sx={{ paddingLeft: "0px" }}>
+                  <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
                       primary="Discord"
                     />
                   </ListItem>
-                  <ListItem sx={{ paddingLeft: "0px" }}>
+                  <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
                       primary="Twitter"
                     />
                   </ListItem>
-                  <ListItem sx={{ paddingLeft: "0px" }}>
+                  <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
                       primary="Mirror"
@@ -472,15 +420,15 @@ function App() {
                   </ListItem>
                 </List>
               </Grid>
-              <Grid item xs={12} md={4} style={{ paddingLeft: "50px" }}>
+              <Grid item xs={12} md={4}>
                 <Typography
                   variant="h6"
-                  sx={{ mb: 2, color: "#FFF", textAlign: "left" }}
+                  sx={{ mb: 2, color: "#FFF", textAlign: "left", fontWeight: 600, fontSize: "20px" }}
                 >
                   Legal
                 </Typography>
                 <List>
-                  <ListItem sx={{ paddingLeft: "0px" }}>
+                  <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
                       primary="Terms of Service"
@@ -515,13 +463,13 @@ function App() {
         <BootstrapButton variant="contained">
           Claim: I{"’"}m a complete idiot and total loser NFT
         </BootstrapButton>
-        <Box sx={{marginTop: "45px"}}>
-        <img
+        <Box sx={{ marginTop: "45px" }}>
+          <img
             src={Pepe2}
             alt="Pepe"
             style={{ width: "115px", height: "115px", marginBottom: "-6px" }}
           />
-        <hr style={{marginTop: 0}}/>
+          <hr style={{ marginTop: 0 }} />
         </Box>
       </Box>
     </Container>
