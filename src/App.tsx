@@ -29,7 +29,7 @@ const OverlayAllowsText = styled(Typography)({
   paddingTop: "35px",
   width: "30vw",
   "@media (max-width: 768px)": {
-    width: "50%",
+    width: "inherit",
     margin: "0 20px",
   },
 });
@@ -39,7 +39,7 @@ const VectorBox = styled(Box)({
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
   position: "relative",
-  width: "1130px",
+  width: "inherit",
   "@media (max-width: 768px)": {
     height: "1800px",
   },
@@ -72,9 +72,17 @@ const OverlayLinks = styled(Link)({
   },
 });
 
+const OverlayGrid = styled(Grid)({
+  paddingLeft: "0",
+  "@media (max-width: 768px)": {
+    paddingLeft: "0 !important",
+  },
+});
+
 function App() {
   return (
     <Container
+    maxWidth={false}
       sx={{
         margin: "0",
         padding: "0",
@@ -90,7 +98,7 @@ function App() {
       <VectorBox
         sx={{
           backgroundImage: `url(${Vector1})`,
-          height: 700,
+          height: 790,
         }}
       >
         <Typography
@@ -102,13 +110,13 @@ function App() {
             left: "50%",
             transform: "translate(-50%, -50%)",
             color: "white",
-            fontSize: "85px",
-            fontsx: "inherit",
+            fontSize: { xs: "45px", md: "114px" },
+            width: "inherit",
             fontWeight: 700,
             lineHeight: "103%",
           }}
         >
-          Ok awesome, you're here
+          Ok awesome,<br></br> ur here
         </Typography>
       </VectorBox>
       <VectorBox
@@ -123,16 +131,16 @@ function App() {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
+            width: "inherit"
           }}
         >
           <Typography
             variant="h4"
             sx={{
               textAlign: "center",
-
+              width: "inherit",
               color: "white",
-              fontSize: "65px",
-              fontsx: "inherit",
+              fontSize: { xs: "45px", md: "64px" },
               fontWeight: 700,
               lineHeight: "103%",
             }}
@@ -144,7 +152,7 @@ function App() {
             sx={{
               textAlign: "center",
               color: "var(--v-2-dark-blue-2, #71CEFF)",
-              fontSize: "65px",
+              fontSize: { xs: "45px", md: "64px" },
               fontsx: "inherit",
               fontWeight: 700,
               lineHeight: "103%",
@@ -159,12 +167,13 @@ function App() {
                 color: "var(--v-2-dark-blue-2, #71CEFF)",
                 cursor: "pointer",
                 textDecorationColor: "var(--v-2-dark-blue-2, #71CEFF)",
+                fontsx: "inherit",
                 "&:hover": {
                   color: "var(--v-2-dark-blue-2, #71CEFF)",
                 },
               }}
             >
-              opened the app, dummy -{">"}
+              opened the app, anon -{">"}
             </OverlayLinks>
           </Typography>
         </Box>
@@ -255,7 +264,7 @@ function App() {
           blah blah<br></br> unreadable<br></br> whitepaper
         </Typography>
       </Box>
-      <VectorBox
+      {/* <VectorBox
         sx={{
           backgroundImage: `url(${Vector3})`,
           height: 900,
@@ -319,7 +328,7 @@ function App() {
             style={{ width: "115px", height: "115px" }}
           />
         </Box>
-      </VectorBox>
+      </VectorBox> */}
       <Box sx={{ textAlign: "-webkit-center", position: "relative" }}>
         <Box sx={{ paddingBottom: "68px" }}>
           <Typography
@@ -332,9 +341,10 @@ function App() {
               fontWeight: 700,
               lineHeight: "103%",
               width: "max-content",
+              paddingTop: "392px"
             }}
           >
-            ffs still here?
+            still here?
           </Typography>
           <Typography
             variant="h4"
@@ -348,7 +358,7 @@ function App() {
               width: "max-content",
             }}
           >
-            fine...
+            alrighty...
           </Typography>
         </Box>
         <Box
@@ -360,13 +370,13 @@ function App() {
             },
           }}
         >
-          <Container maxWidth="sm" sx={{ textAlign: "center" }}>
+          <Container  sx={{ textAlign: "center", paddingLeft: "0 !important", maxWidth: {lg: "sm", xs: "sm"} }}>
             <Grid
               container
               spacing={{ lg: 12, md: 12, xs: 3 }}
               sx={{ justifyContent: "center", textAlign: "initial" }}
             >
-              <Grid item xs={12} md={4}>
+              <OverlayGrid item xs={12} md={4}>
                 <Typography
                   variant="h6"
                   sx={{
@@ -472,8 +482,8 @@ function App() {
                     />
                   </ListItem>
                 </List>
-              </Grid>
-              <Grid item xs={12} md={4}>
+              </OverlayGrid>
+              <OverlayGrid item xs={12} md={4}>
                 <Typography
                   variant="h6"
                   sx={{
@@ -527,8 +537,8 @@ function App() {
                     />
                   </ListItem>
                 </List>
-              </Grid>
-              <Grid item xs={12} md={4}>
+              </OverlayGrid>
+              <OverlayGrid item xs={12} md={4}>
                 <Typography
                   variant="h6"
                   sx={{
@@ -556,7 +566,7 @@ function App() {
                     />
                   </ListItem>
                 </List>
-              </Grid>
+              </OverlayGrid>
             </Grid>
           </Container>
         </Box>
