@@ -8,14 +8,18 @@ import Pepe1 from "./assets/images/pepe-1.png";
 import Pepe2 from "./assets/images/pepe-2.png";
 import "./App.css";
 import Typography from "@mui/material/Typography";
+import { GENERAL_LINKS } from "./constants/constants";
 import {
   Button,
   Grid,
+  Link,
   List,
   ListItem,
   ListItemText,
+  Paper,
   styled,
 } from "@mui/material";
+import { useState } from "react";
 
 const OverlayAllowsText = styled(Typography)({
   textAlign: "left",
@@ -58,6 +62,15 @@ const BootstrapButton = styled(Button)({
     background: "#353B4F",
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
     color: "#FFF",
+  },
+});
+
+const OverlayLinks = styled(Link)({
+  textDecorationLine: "underline",
+  textDecorationColor: "#FFF",
+  color: "#FFF",
+  "&:hover": {
+    color: "#cccccc",
   },
 });
 
@@ -140,7 +153,21 @@ function App() {
               textDecorationLine: "underline",
             }}
           >
-            opened the app, dummy -{">"}
+            <OverlayLinks
+              underline="always"
+              target="_blank"
+              href={GENERAL_LINKS.OVERLAY_APP}
+              sx={{
+                color: "var(--v-2-dark-blue-2, #71CEFF)",
+                cursor: "pointer",
+                textDecorationColor: "var(--v-2-dark-blue-2, #71CEFF)",
+                "&:hover": {
+                  color: "var(--v-2-dark-blue-2, #71CEFF)",
+                },
+              }}
+            >
+              opened the app, dummy -{">"}
+            </OverlayLinks>
           </Typography>
         </Box>
       </VectorBox>
@@ -173,13 +200,14 @@ function App() {
         >
           Overlay does not require liquidity to create a market.
         </OverlayAllowsText>
-        <OverlayAllowsText
-          variant="h4"
-          sx={{
-            textDecorationLine: "underline",
-          }}
-        >
-          Read the docs -{">"}
+        <OverlayAllowsText variant="h4">
+          <OverlayLinks
+            target="_blank"
+            underline="always"
+            href={GENERAL_LINKS.DOCUMENTATION}
+          >
+            Read the docs -{">"}
+          </OverlayLinks>
         </OverlayAllowsText>
       </Box>
       <Box sx={{ textAlign: "-webkit-center", position: "relative" }}>
@@ -207,7 +235,7 @@ function App() {
             fontStyle: "normal",
             fontWeight: 300,
             lineHeight: "103%",
-            paddingTop: "392px",
+            marginTop: "392px",
           }}
         >
           blah blah<br></br> polychain
@@ -337,13 +365,19 @@ function App() {
           <Container maxWidth="sm" sx={{ textAlign: "center" }}>
             <Grid
               container
-              spacing={{lg:12, md: 12, xs: 3}}
+              spacing={{ lg: 12, md: 12, xs: 3 }}
               sx={{ justifyContent: "center", textAlign: "initial" }}
             >
               <Grid item xs={12} md={4}>
                 <Typography
                   variant="h6"
-                  sx={{ mb: 2, color: "#FFF", textAlign: "left", fontWeight: 600, fontSize: "20px" }}
+                  sx={{
+                    mb: 2,
+                    color: "#FFF",
+                    textAlign: "left",
+                    fontWeight: 600,
+                    fontSize: "20px",
+                  }}
                 >
                   Protocol
                 </Typography>
@@ -351,43 +385,92 @@ function App() {
                   <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
-                      primary="Github"
+                      primary={
+                        <OverlayLinks
+                          target="_blank"
+                          href={GENERAL_LINKS.GITHUB}
+                        >
+                          Github
+                        </OverlayLinks>
+                      }
                     />
                   </ListItem>
                   <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
-                      primary="Documentation"
+                      primary={
+                        <OverlayLinks
+                          target="_blank"
+                          href={GENERAL_LINKS.DOCUMENTATION}
+                        >
+                          Documentation
+                        </OverlayLinks>
+                      }
                     />
                   </ListItem>
                   <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
-                      primary="White Paper V1"
+                      primary={
+                        <OverlayLinks
+                          target="_blank"
+                          href={GENERAL_LINKS.WHITEPAPER_V1}
+                        >
+                          White Paper V1
+                        </OverlayLinks>
+                      }
                     />
                   </ListItem>
                   <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
-                      primary="Spearbit Audit"
+                      primary={
+                        <OverlayLinks
+                          target="_blank"
+                          href={GENERAL_LINKS.SPEARBIT_AUDIT}
+                        >
+                          Spearbit Audit
+                        </OverlayLinks>
+                      }
                     />
                   </ListItem>
                   <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
-                      primary="Least Authority Audit"
+                      primary={
+                        <OverlayLinks
+                          target="_blank"
+                          href={GENERAL_LINKS.LEAST_AUTHORITY_AUDIT}
+                        >
+                          Least Authority Audit
+                        </OverlayLinks>
+                      }
                     />
                   </ListItem>
                   <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
-                      primary="Trail of Bits Audit"
+                      primary={
+                        <OverlayLinks
+                          target="_blank"
+                          href={GENERAL_LINKS.TRAIL_OF_BITS_AUDIT}
+                        >
+                          Trail of Bits Audit
+                        </OverlayLinks>
+                      }
                     />
                   </ListItem>
                   <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
-                      primary="Immunefi Bounty"
+                      primary={
+                        <OverlayLinks
+                          target="_blank"
+                          href={GENERAL_LINKS.INMUNEFI_BOUNTY}
+                        >
+                          Immunefi Bounty
+                        </OverlayLinks>
+                      }
                     />
                   </ListItem>
                 </List>
@@ -395,7 +478,13 @@ function App() {
               <Grid item xs={12} md={4}>
                 <Typography
                   variant="h6"
-                  sx={{ mb: 2, color: "#FFF", textAlign: "left", fontWeight: 600, fontSize: "20px" }}
+                  sx={{
+                    mb: 2,
+                    color: "#FFF",
+                    textAlign: "left",
+                    fontWeight: 600,
+                    fontSize: "20px",
+                  }}
                 >
                   Connect
                 </Typography>
@@ -403,19 +492,40 @@ function App() {
                   <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
-                      primary="Discord"
+                      primary={
+                        <OverlayLinks
+                          target="_blank"
+                          href={GENERAL_LINKS.DISCORD}
+                        >
+                          Discord
+                        </OverlayLinks>
+                      }
                     />
                   </ListItem>
                   <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
-                      primary="Twitter"
+                      primary={
+                        <OverlayLinks
+                          target="_blank"
+                          href={GENERAL_LINKS.TWITTER}
+                        >
+                          Twitter
+                        </OverlayLinks>
+                      }
                     />
                   </ListItem>
                   <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
-                      primary="Mirror"
+                      primary={
+                        <OverlayLinks
+                          target="_blank"
+                          href={GENERAL_LINKS.MIRROR}
+                        >
+                          Mirror
+                        </OverlayLinks>
+                      }
                     />
                   </ListItem>
                 </List>
@@ -423,7 +533,13 @@ function App() {
               <Grid item xs={12} md={4}>
                 <Typography
                   variant="h6"
-                  sx={{ mb: 2, color: "#FFF", textAlign: "left", fontWeight: 600, fontSize: "20px" }}
+                  sx={{
+                    mb: 2,
+                    color: "#FFF",
+                    textAlign: "left",
+                    fontWeight: 600,
+                    fontSize: "20px",
+                  }}
                 >
                   Legal
                 </Typography>
@@ -431,7 +547,14 @@ function App() {
                   <ListItem sx={{ paddingLeft: "0px", width: "max-content" }}>
                     <ListItemText
                       sx={{ textDecorationLine: "underline", color: "#FFF" }}
-                      primary="Terms of Service"
+                      primary={
+                        <OverlayLinks
+                          target="_blank"
+                          href={GENERAL_LINKS.TERMS_OF_SERVICE}
+                        >
+                          Terms of Service
+                        </OverlayLinks>
+                      }
                     />
                   </ListItem>
                 </List>
@@ -460,7 +583,7 @@ function App() {
         >
           congrats,<br></br> you scrolled to the end 🙄
         </Typography>
-        <BootstrapButton variant="contained">
+        <BootstrapButton variant="contained" disabled={true}>
           Claim: I{"’"}m a complete idiot and total loser NFT
         </BootstrapButton>
         <Box sx={{ marginTop: "45px" }}>
