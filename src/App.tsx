@@ -16,10 +16,8 @@ import {
   List,
   ListItem,
   ListItemText,
-  Paper,
   styled,
 } from "@mui/material";
-import { useState } from "react";
 
 const OverlayAllowsText = styled(Typography)({
   textAlign: "left",
