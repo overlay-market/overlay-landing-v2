@@ -5,6 +5,7 @@ import OverlayLogoSection from './sections/OverlayLogoSection'
 import Header from './sections/Header'
 import IndexesSection from './sections/IndexesSection'
 import TrendingSection from './sections/TrendingSection'
+import HowItWorksSection from './sections/HowItWorksSection'
 
 const App: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
       <OverlayLogoSection />
       <IndexesSection />
       <TrendingSection />
+      <HowItWorksSection />
     </div>
   )
 }
