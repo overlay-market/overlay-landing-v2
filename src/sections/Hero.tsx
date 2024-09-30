@@ -3,7 +3,7 @@ import { styled } from '@stitches/react';
 
 import DynamicBackgroundSVG from '../assets/background'
 import CardsImage from '../assets/hero-image.png';
-import { mediaQueries } from '../constants';
+import { mediaQueries, LINKS } from '../constants';
 
 const HeroContainer = styled('div', {
   '--OV-gradiant-1': 'linear-gradient(90deg, #FFC955 0%, #FF7CD5 100%)',
@@ -144,7 +144,7 @@ const CardsContainer = styled('div', {
 
 const Hero: React.FC = () => {
   const handleTradeNow = () => {
-    window.location.href = 'https://app.overlay.market';
+    window.location.href = LINKS.trade;
   };
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '@stitches/react';
-import { mediaQueries } from '../constants';
+import { mediaQueries, LINKS } from '../constants';
 
 const ButtonBarContainer = styled('div', {
   display: 'flex',
@@ -36,19 +36,19 @@ const ButtonLink = styled('a', {
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     opacity: '0.9',
     color: '#FFF',
-},
+  },
 });
 
 const DesktopButtonBar: React.FC = () => {
   return (
     <ButtonBarContainer>
-      <ButtonLink href="https://example.com/documentation" target="_blank" rel="noopener noreferrer">
+      <ButtonLink href={LINKS.documentation} target="_blank" rel="noopener noreferrer">
         Documentation
       </ButtonLink>
-      <ButtonLink href="https://example.com/governance" target="_blank" rel="noopener noreferrer">
+      <ButtonLink href={LINKS.governance} target="_blank" rel="noopener noreferrer">
         Governance
       </ButtonLink>
-      <ButtonLink href="https://example.com/whitepaper" target="_blank" rel="noopener noreferrer">
+      <ButtonLink href={LINKS.whitepaper} target="_blank" rel="noopener noreferrer">
         White Paper
       </ButtonLink>
     </ButtonBarContainer>
