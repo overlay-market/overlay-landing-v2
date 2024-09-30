@@ -13,4 +13,5 @@ export const LINKS = {
   governance: "https://example.com/governance",
   whitepaper: "https://example.com/whitepaper",
   trade: "https://app.overlay.market",
+  markets: "https://example.com/markets",
 };

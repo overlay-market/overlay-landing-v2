@@ -3,6 +3,7 @@ import './App.css'
 import Hero from './sections/Hero'
 import OverlayLogoSection from './sections/OverlayLogoSection'
 import Header from './sections/Header'
+import IndexesSection from './sections/IndexesSection'
 
 const App: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const App: React.FC = () => {
       <Header />
       <Hero />
       <OverlayLogoSection />
+      <IndexesSection />
     </div>
   )
 }
