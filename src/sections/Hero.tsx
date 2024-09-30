@@ -16,6 +16,7 @@ const HeroContainer = styled('div', {
   alignItems: 'center',
   color: 'white',
   overflow: 'hidden',
+  paddingTop: '80px',
 });
 
 const BackgroundWrapper = styled('div', {
@@ -37,11 +38,10 @@ const StyledBackgroundSVG = styled(DynamicBackgroundSVG, {
 const ContentWrapper = styled('div', {
   position: 'relative',
   display: 'flex',
-  width: '100%',
+  width: '90%',
   minHeight: '100vh',
   justifyContent: 'space-between',
   alignItems: 'center',
-  padding: '40px',
   gap: '40px',
   maxWidth: '1120px',
   zIndex: 1,
