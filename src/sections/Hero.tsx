@@ -108,7 +108,7 @@ const Subtitle = styled('h2', {
   },
 });
 
-const TradeButton = styled('button', {
+export const TradeButton = styled('button', {
   display: 'flex',
   width: '100%',
   maxWidth: '360px',
