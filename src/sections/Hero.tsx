@@ -129,10 +129,6 @@ const TradeButton = styled('button', {
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
   cursor: 'pointer',
-
-  [mediaQueries.mobile]: {
-    maxWidth: '100%',
-  },
 });
 
 const CardsContainer = styled('div', {
