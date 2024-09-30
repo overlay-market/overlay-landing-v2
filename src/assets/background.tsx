@@ -126,7 +126,7 @@ const DynamicBackgroundSVG: React.FC<Props> = ({ className }) => {
           <stop stopColor="#E7FF4A"/>
           <stop offset="1" stopColor="#02FF8F"/>
         </linearGradient>
-        <linearGradient id="paint3_linear_798_5188" x1="720" y1="181" x2="720" y2="856" gradientUnits="userSpaceOnUse">
+        <linearGradient id="paint3_linear_798_5188" x1="720" y1="0" x2="720" y2="750" gradientUnits="userSpaceOnUse">
           <stop stopOpacity="0"/>
           <stop offset="1" stopColor="#232323"/>
         </linearGradient>
