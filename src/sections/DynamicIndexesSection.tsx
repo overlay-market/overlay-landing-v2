@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { styled, keyframes } from '@stitches/react';
 import { marketConfig, Market } from '../config/marketConfig';
-import { mediaQueries } from '../constants';
+import { LINKS, mediaQueries } from '../constants';
+import ExternalLinkIcon from '../assets/external-link-icon.svg';
 
 const SectionWrapper = styled('div', {
   '--market-card-gap': '32px',
@@ -111,6 +112,28 @@ const MarketName = styled('span', {
   lineHeight: '20px',
 });
 
+const LinkButton = styled('a', {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '4px',
+  textDecoration: 'none',
+});
+
+const LinkText = styled('span', {
+  color: '#12B4FF',
+  textAlign: 'center',
+  fontFamily: '"IBM Plex Mono", monospace',
+  fontSize: '16px',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  lineHeight: 'normal',
+});
+
+const LinkIcon = styled('img', {
+  width: '20px',
+  height: '20px',
+});
+
 const DynamicIndexesSection: React.FC = () => {
   const [markets, setMarkets] = useState<Market[]>([]);
   const rowRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)];
@@ -182,7 +205,11 @@ const DynamicIndexesSection: React.FC = () => {
         {renderRow(1)}
         {renderRow(2)}
         {renderRow(3)}
-      </MarketsContainer>
+      </MarketsContainer>      
+      <LinkButton href={LINKS.markets} target="_blank" rel="noopener noreferrer">
+        <LinkText>List of markets section</LinkText>
+        <LinkIcon src={ExternalLinkIcon} alt="External link" />
+      </LinkButton>
     </SectionWrapper>
   );
 };
