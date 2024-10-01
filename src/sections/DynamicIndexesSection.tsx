@@ -4,6 +4,7 @@ import { marketConfig, Market } from '../config/marketConfig';
 import { mediaQueries } from '../constants';
 
 const SectionWrapper = styled('div', {
+  '--market-card-gap': '32px',
   display: 'flex',
   padding: '120px 0',
   flexDirection: 'column',
@@ -39,7 +40,7 @@ const MarketsContainer = styled('div', {
   display: 'flex',
   width: '100%',
   flexDirection: 'column',
-  gap: '32px',
+  gap: 'var(--market-card-gap)',
 });
 
 const scrollAnimation = keyframes({
@@ -55,7 +56,7 @@ const RowContainer = styled('div', {
 
 const RowContent = styled('div', {
   display: 'flex',
-  gap: '32px',
+  gap: 'var(--market-card-gap)',
   justifyContent: 'flex-start',
   animation: `${scrollAnimation} linear infinite`,
   '&:hover': {
@@ -123,15 +124,18 @@ const DynamicIndexesSection: React.FC = () => {
     const setRowWidth = () => {
       rowRefs.forEach((ref, index) => {
         if (ref.current) {
+          const computedStyle = window.getComputedStyle(ref.current);
+          const gap = parseInt(computedStyle.getPropertyValue('--market-card-gap') || '0', 10);
+          
           const marketCards = ref.current.children;
           let totalWidth = 0;
           for (let i = 0; i < marketCards.length; i++) {
             totalWidth += (marketCards[i] as HTMLElement).offsetWidth;
           }
-          totalWidth += (marketCards.length - 1) * 16; // Add gap
+          totalWidth += (marketCards.length - 1) * gap;
           ref.current.style.width = `${totalWidth}px`;
           
-          const speed = index === 0 ? 10 : index === 1 ? 6 : 12; // Middle row is faster
+          const speed = index === 0 ? 10 : index === 1 ? 6 : 12;
           ref.current.style.animationDuration = `${speed * (totalWidth / 500)}s`;
         }
       });
