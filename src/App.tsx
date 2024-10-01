@@ -6,6 +6,7 @@ import Header from './sections/Header'
 import IndexesSection from './sections/IndexesSection'
 import TrendingSection from './sections/TrendingSection'
 import HowItWorksSection from './sections/HowItWorksSection'
+import GovernanceSection from './sections/GovernanceSection'
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
       <IndexesSection />
       <TrendingSection />
       <HowItWorksSection />
+      <GovernanceSection />
     </div>
   )
 }
