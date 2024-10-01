@@ -17,4 +17,9 @@ export const LINKS = {
   spearbitAudit: "https://example.com/spearbit-audit",
   leastAuthorityAudit: "https://example.com/least-authority-audit",
   trailOfBitsAudit: "https://example.com/trail-of-bits-audit",
+  github: "https://github.com/overlay-market",
+  discord: "https://discord.gg/overlay",
+  twitter: "https://twitter.com/overlay_protocol",
+  mirror: "https://mirror.xyz/0x8c9F87668E544D9A5cf4F29C54E2E5AC6CEcE72D",
+  termsOfService: "https://example.com/terms-of-service",
 };

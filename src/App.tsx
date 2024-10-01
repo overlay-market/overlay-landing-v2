@@ -10,6 +10,7 @@ import GovernanceSection from './sections/GovernanceSection'
 import TradeEverythingSection from './sections/TradeEverythingSection'
 import AuditsSection from './sections/AuditSection'
 import WhitePaperSection from './sections/WhitePaperSection'
+import Footer from './sections/Footer'
 
 const App: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const App: React.FC = () => {
       <TradeEverythingSection />
       <AuditsSection />
       <WhitePaperSection />
+      <Footer />
     </div>
   )
 }
