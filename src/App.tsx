@@ -7,6 +7,8 @@ import IndexesSection from './sections/IndexesSection'
 import TrendingSection from './sections/TrendingSection'
 import HowItWorksSection from './sections/HowItWorksSection'
 import GovernanceSection from './sections/GovernanceSection'
+import TradeEverythingSection from './sections/TradeEverythingSection'
+import AuditsSection from './sections/AuditSection'
 
 const App: React.FC = () => {
   return (
@@ -18,6 +20,8 @@ const App: React.FC = () => {
       <TrendingSection />
       <HowItWorksSection />
       <GovernanceSection />
+      <TradeEverythingSection />
+      <AuditsSection />
     </div>
   )
 }
