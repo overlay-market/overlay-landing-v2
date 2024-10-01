@@ -9,6 +9,7 @@ import HowItWorksSection from './sections/HowItWorksSection'
 import GovernanceSection from './sections/GovernanceSection'
 import TradeEverythingSection from './sections/TradeEverythingSection'
 import AuditsSection from './sections/AuditSection'
+import WhitePaperSection from './sections/WhitePaperSection'
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
       <GovernanceSection />
       <TradeEverythingSection />
       <AuditsSection />
+      <WhitePaperSection />
     </div>
   )
 }
