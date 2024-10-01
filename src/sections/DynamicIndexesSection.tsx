@@ -1,5 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { styled, keyframes } from '@stitches/react';
+import React, { useState, useEffect } from 'react';
+import { styled } from '@stitches/react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { marketConfig, Market } from '../config/marketConfig';
 import { LINKS, mediaQueries } from '../constants';
 import ExternalLinkIcon from '../assets/external-link-icon.svg';
@@ -44,25 +47,20 @@ const MarketsContainer = styled('div', {
   gap: 'var(--market-card-gap)',
 });
 
-const scrollAnimation = keyframes({
-  '0%': { transform: 'translateX(0)' },
-  '100%': { transform: 'translateX(-50%)' },
-});
-
-const RowContainer = styled('div', {
-  display: 'flex',
-  overflow: 'hidden',
+const SliderContainer = styled('div', {
   width: '100%',
+  overflow: 'hidden',
+  '& .slick-track': {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  '& .slick-slide': {
+    height: 'auto',
+  },
 });
 
-const RowContent = styled('div', {
-  display: 'flex',
-  gap: 'var(--market-card-gap)',
-  justifyContent: 'flex-start',
-  animation: `${scrollAnimation} linear infinite`,
-  '&:hover': {
-    animationPlayState: 'paused',
-  },
+const MarketCardWrapper = styled('div', {
+  padding: '0 16px',
 });
 
 const MarketCard = styled('div', {
@@ -136,65 +134,51 @@ const LinkIcon = styled('img', {
 
 const DynamicIndexesSection: React.FC = () => {
   const [markets, setMarkets] = useState<Market[]>([]);
-  const rowRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)];
 
   useEffect(() => {
     const shuffledMarkets = [...marketConfig].sort(() => Math.random() - 0.5);
     setMarkets(shuffledMarkets);
   }, []);
 
-  useEffect(() => {
-    const setRowWidth = () => {
-      rowRefs.forEach((ref, index) => {
-        if (ref.current) {
-          const computedStyle = window.getComputedStyle(ref.current);
-          const gap = parseInt(computedStyle.getPropertyValue('--market-card-gap') || '0', 10);
-          
-          const marketCards = ref.current.children;
-          let totalWidth = 0;
-          for (let i = 0; i < marketCards.length; i++) {
-            totalWidth += (marketCards[i] as HTMLElement).offsetWidth;
-          }
-          totalWidth += (marketCards.length - 1) * gap;
-          ref.current.style.width = `${totalWidth}px`;
-          
-          const speed = index === 0 ? 10 : index === 1 ? 6 : 12;
-          ref.current.style.animationDuration = `${speed * (totalWidth / 500)}s`;
-        }
-      });
-    };
-
-    setRowWidth();
-    window.addEventListener('resize', setRowWidth);
-    return () => window.removeEventListener('resize', setRowWidth);
-  }, [markets]);
-
   const renderMarketCard = (market: Market) => (
-    <MarketCard key={market.name}>
-      <MarketIcon src={market.icon} alt={market.name} />
-      <MarketInfo>
-        <MarketPrice up={market.up}>{market.price}</MarketPrice>
-        <MarketName>{market.name}</MarketName>
-      </MarketInfo>
-    </MarketCard>
+    <MarketCardWrapper>
+      <MarketCard>
+        <MarketIcon src={market.icon} alt={market.name} />
+        <MarketInfo>
+          <MarketPrice up={market.up}>{market.price}</MarketPrice>
+          <MarketName>{market.name}</MarketName>
+        </MarketInfo>
+      </MarketCard>
+    </MarketCardWrapper>
   );
 
-  const renderRow = (rowNumber: number) => {
+  const sliderSettings = (speed: number) => ({
+    dots: false,
+    infinite: true,
+    autoplay: true,
+    speed: speed,
+    autoplaySpeed: 0,
+    pauseOnHover: false,
+    variableWidth: true,
+    arrows: false,
+    cssEase: "linear"
+  });
+
+  const renderRow = (rowNumber: number, speed: number) => {
     const rowMarkets = markets.filter(market => 
       !market.row || market.row.length === 0 || market.row.includes(rowNumber)
     );
-    const duplicatedMarkets = [...rowMarkets, ...rowMarkets];
 
     return (
-      <RowContainer key={rowNumber}>
-        <RowContent ref={rowRefs[rowNumber - 1]}>
-          {duplicatedMarkets.map((market, index) => (
+      <SliderContainer key={rowNumber}>
+        <Slider {...sliderSettings(speed)}>
+          {rowMarkets.map((market, index) => (
             <React.Fragment key={`${market.name}-${index}`}>
               {renderMarketCard(market)}
             </React.Fragment>
           ))}
-        </RowContent>
-      </RowContainer>
+        </Slider>
+      </SliderContainer>
     );
   };
 
@@ -202,9 +186,9 @@ const DynamicIndexesSection: React.FC = () => {
     <SectionWrapper>
       <Title>Wide world of new markets</Title>
       <MarketsContainer>
-        {renderRow(1)}
-        {renderRow(2)}
-        {renderRow(3)}
+        {renderRow(1, 6500)}
+        {renderRow(2, 3000)}
+        {renderRow(3, 7500)}
       </MarketsContainer>      
       <LinkButton href={LINKS.markets} target="_blank" rel="noopener noreferrer">
         <LinkText>List of markets section</LinkText>
