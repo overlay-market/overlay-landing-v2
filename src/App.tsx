@@ -11,6 +11,7 @@ import TradeEverythingSection from './sections/TradeEverythingSection'
 import AuditsSection from './sections/AuditSection'
 import WhitePaperSection from './sections/WhitePaperSection'
 import Footer from './sections/Footer'
+import DynamicIndexesSection from './sections/DynamicIndexesSection'
 
 const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: React.FC = () => {
       <Hero />
       <OverlayLogoSection />
       <IndexesSection />
+      <DynamicIndexesSection />
       <TrendingSection />
       <HowItWorksSection />
       <GovernanceSection />
