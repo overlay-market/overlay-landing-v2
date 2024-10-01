@@ -3,7 +3,6 @@ import './App.css'
 import Hero from './sections/Hero'
 import OverlayLogoSection from './sections/OverlayLogoSection'
 import Header from './sections/Header'
-import IndexesSection from './sections/IndexesSection'
 import TrendingSection from './sections/TrendingSection'
 import HowItWorksSection from './sections/HowItWorksSection'
 import GovernanceSection from './sections/GovernanceSection'
@@ -19,7 +18,6 @@ const App: React.FC = () => {
       <Header />
       <Hero />
       <OverlayLogoSection />
-      <IndexesSection />
       <DynamicIndexesSection />
       <TrendingSection />
       <HowItWorksSection />
