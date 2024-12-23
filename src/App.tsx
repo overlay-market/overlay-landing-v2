@@ -4,6 +4,7 @@ import './App.css'
 import Header from './sections/Header'
 import Footer from './sections/Footer'
 import Landing from './pages/Landing';
+import TermsOfService from './pages/TermsOfService';
 
 const App: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const App: React.FC = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/tos" element={<TermsOfService />} />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
