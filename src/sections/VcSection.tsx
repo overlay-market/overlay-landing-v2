@@ -349,11 +349,11 @@ const VcSection: React.FC = () => {
         <TradeButton onClick={handleTradeNow}>Launch App</TradeButton>
         <BackgroundSVG xmlns="http://www.w3.org/2000/svg" width="987" height="757" viewBox="0 0 987 757" fill="none">
           <g filter="url(#filter0_f_1267_636)">
-            <path d="M842.5 292.334C861.297 135.233 345.751 133.363 85.6278 152.065C-281.31 168.541 -156.332 542.145 182.612 602.705C486.059 656.923 819.004 488.709 842.5 292.334Z" fill="#FF3939" fill-opacity="0.2"/>
+            <path d="M842.5 292.334C861.297 135.233 345.751 133.363 85.6278 152.065C-281.31 168.541 -156.332 542.145 182.612 602.705C486.059 656.923 819.004 488.709 842.5 292.334Z" fill="#FF3939" fillOpacity="0.2"/>
           </g>
           <defs>
-            <filter id="filter0_f_1267_636" x="-281" y="0" width="1268" height="757" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <filter id="filter0_f_1267_636" x="-281" y="0" width="1268" height="757" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <feFlood floodOpacity="0" result="BackgroundImageFix"/>
               <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
               <feGaussianBlur stdDeviation="72" result="effect1_foregroundBlur_1267_636"/>
             </filter>
