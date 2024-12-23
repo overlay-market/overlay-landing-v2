@@ -5,6 +5,7 @@ import Header from './sections/Header'
 import Footer from './sections/Footer'
 import Landing from './pages/Landing';
 import TermsOfService from './pages/TermsOfService';
+import { AccessDenied } from './pages/AccessDenied';
 
 const App: React.FC = () => {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/tos" element={<TermsOfService />} />
+        <Route path="/accessDenied" element={<AccessDenied />} />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
