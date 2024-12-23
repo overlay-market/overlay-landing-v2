@@ -10,12 +10,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-aspect-ratio": "^1.1.0",
+    "@radix-ui/themes": "^3.1.4",
+    "@stitches/react": "^1.2.8",
+    "overlay-sdk": "https://github.com/overlay-market/overlay-sdk/releases/download/v0.1.6-alpha/overlay-sdk-dist.tar.gz",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.1",
+    "react-router-dom": "^7.1.0",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "@types/react-slick": "^0.23.13",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",

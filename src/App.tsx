@@ -1,34 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useEffect } from 'react'
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import './App.css'
+import Header from './sections/Header'
+import Footer from './sections/Footer'
+import Landing from './pages/Landing';
+import TermsOfService from './pages/TermsOfService';
+import { AccessDenied } from './pages/AccessDenied';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash.startsWith('#/')) {
+      const path = hash.replace('#/', ''); // Replace '#/' with ''
+      navigate(path); // Redirect to the updated path
+    }
+  }, [navigate]);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div style={{ width: '100%', overflowX: 'hidden', position: 'relative' }}>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/tos" element={<TermsOfService />} />
+        <Route path="/accessDenied" element={<AccessDenied />} />
+        <Route path="/*" element={<Navigate to="/" />} />
+      </Routes>
+      <Footer />
+    </div>
   )
 }
 
