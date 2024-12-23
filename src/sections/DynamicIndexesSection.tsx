@@ -173,8 +173,8 @@ const DynamicIndexesSection: React.FC = () => {
       <SliderContainer key={rowNumber}>
         <Slider {...sliderSettings(speed)}>
           {rowMarkets.filter(market => !!market).map((market, index) => (
-            <React.Fragment key={`${market.name}-${index}`}>
-              {renderMarketCard(market)}
+            <React.Fragment key={`${market?.name}-${index}`}>
+              {market && renderMarketCard(market)}
             </React.Fragment>
           ))}
         </Slider>
