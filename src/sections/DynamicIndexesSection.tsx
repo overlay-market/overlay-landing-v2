@@ -133,7 +133,7 @@ const LinkIcon = styled('img', {
 });
 
 const DynamicIndexesSection: React.FC = () => {
-  const [markets, setMarkets] = useState<Market[]>([]);
+  const [markets, setMarkets] = useState<(Market | null)[]>([]);
 
   useEffect(() => {
     const shuffledMarkets = [...marketConfig].sort(() => Math.random() - 0.5);
@@ -166,13 +166,13 @@ const DynamicIndexesSection: React.FC = () => {
 
   const renderRow = (rowNumber: number, speed: number) => {
     const rowMarkets = markets.filter(market => 
-      !market.row || market.row.length === 0 || market.row.includes(rowNumber)
+      !market || !market.row || market.row.length === 0 || market.row.includes(rowNumber)
     );
 
     return (
       <SliderContainer key={rowNumber}>
         <Slider {...sliderSettings(speed)}>
-          {rowMarkets.map((market, index) => (
+          {rowMarkets.filter(market => !!market).map((market, index) => (
             <React.Fragment key={`${market.name}-${index}`}>
               {renderMarketCard(market)}
             </React.Fragment>
