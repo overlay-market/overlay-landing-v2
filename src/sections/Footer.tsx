@@ -18,6 +18,7 @@ const footerConfig = [
     links: [
       { label: 'Discord', url: LINKS.discord },
       { label: 'Twitter', url: LINKS.twitter },
+      { label: 'Telegram', url: LINKS.telegram },
       { label: 'Mirror', url: LINKS.mirror },
     ],
   },
