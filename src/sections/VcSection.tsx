@@ -6,7 +6,6 @@ import { TradeButton } from './Hero';
 import PolychainLogo from '../assets/polychain-logo.png';
 import onekxLogo from '../assets/onekx-logo.png';
 import parafiLogo from '../assets/parafi-logo.png';
-// import ExternalLinkIcon from "../assets/external-link-icon.svg";
 
 const vcLogoData = [
   {
@@ -369,7 +368,7 @@ const VcSection: React.FC = () => {
         <SectionContainer>
           <LogoContainer>
             {vcLogoData.map((logoItem, index) => (
-              <LogoLink key={index} href={logoItem.url} target="_blank" rel="noopener noreferrer">
+              <LogoLink key={index}>
                 <img style={{width: logoItem.width}} src={logoItem.logo} alt="Logo" />
               </LogoLink>
             ))}
